@@ -1,0 +1,32 @@
+syntax = "proto3";
+package csce438;
+import "google/protobuf/timestamp.proto";
+
+
+// ------------------------------------------------------------
+// The synchronizer service definition
+// These are the different functionalities exposed by service
+// ------------------------------------------------------------
+
+service SynchService{
+  rpc GetManagedUsers (Msg) returns (AllUsers) {}
+  rpc GetFL (Msg) returns (FlwRel) {}
+  rpc SendTL (Timelines) returns (Msg) {}
+}
+
+message AllUsers{
+  repeated string users = 1;
+}
+
+message Msg{
+  string data = 1;
+}
+
+message FlwRel{
+  repeated string rel = 1;
+}
+
+message Timelines{
+  repeated string lines = 1;
+}
+
